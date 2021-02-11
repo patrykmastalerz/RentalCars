@@ -129,7 +129,7 @@
         </DataGrid>
 
         <Button x:Name="carButton" Grid.Column="2" Grid.Row="4" Content="Dodaj pojazd" Click="addCarBatton_Click"/>
-        <Button x:Name="rentalButton" Grid.Column="3" Grid.Row="4" Content="Dodaj zamowienie"/>
+        <Button x:Name="rentalButton" Grid.Column="3" Grid.Row="4" Content="Dodaj zamowienie" Click="addRental_Click" />
         <Button x:Name="customerButton" Grid.Column="4" Grid.Row="4" Content="Dodaj klienta" Click="addCustomer_Click" />
 
 
