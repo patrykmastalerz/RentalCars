@@ -99,14 +99,15 @@
         </DataGrid>
 
         <DataGrid 
+            AutoGenerateColumns="False"
             x:Name="customersGrid" 
             Grid.Column="4" 
             Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id"></DataGridTextColumn>
-                <DataGridTextColumn Header="Imie"></DataGridTextColumn>
-                <DataGridTextColumn Header="Nazwisko"></DataGridTextColumn>
-                <DataGridTextColumn Header="Telefonu"></DataGridTextColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Imie" Binding="{Binding Path=FirstName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Path=SecondName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Telefonu" Binding="{Binding Path=PhoneNumber}"></DataGridTextColumn>
 
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>

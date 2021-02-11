@@ -52,6 +52,7 @@ namespace RentalCars
 
                 repository.AddCustomer(customer);
                 ResetFields();
+                MainWindow.customerGridData.ItemsSource = repository.GetAll();
                 MessageBox.Show("Nowy użytkownik został dodany");
             }
             catch (Exception)

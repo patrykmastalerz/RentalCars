@@ -23,16 +23,23 @@ namespace RentalCars
     public partial class MainWindow : Window
     {
         private readonly CarRepository carRepository = null;
+        private readonly CustomerRepository customerRepository = null;
 
         public static DataGrid carGridData;
+        public static DataGrid customerGridData;
 
         public MainWindow()
         {
             InitializeComponent();
             carRepository = new CarRepository();
+            customerRepository = new CustomerRepository();
 
             PopulateCarGrid();
+            PopulateCustomerGrid();
         }
+
+
+
 
         private void addCarBatton_Click(object sender, RoutedEventArgs e)
         {
@@ -45,6 +52,13 @@ namespace RentalCars
             carGrid.ItemsSource = carRepository.GetAll();
             carGridData = carGrid;
         }
+
+        private void PopulateCustomerGrid()
+        {
+            customersGrid.ItemsSource = customerRepository.GetAll();
+            customerGridData = customersGrid;
+        }
+
 
         private void carEdit_Click(object sender, RoutedEventArgs e)
         {
