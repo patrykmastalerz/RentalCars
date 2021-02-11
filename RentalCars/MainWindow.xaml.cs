@@ -71,5 +71,11 @@ namespace RentalCars
                 PopulateCarGrid();
             }
         }
+
+        private void addCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            AddCustomerView addCustomerView = new AddCustomerView();
+            addCustomerView.Show();
+        }
     }
 }
