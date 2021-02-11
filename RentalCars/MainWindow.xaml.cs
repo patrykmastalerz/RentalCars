@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RentalCars.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace RentalCars
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void addCarBatton_Click(object sender, RoutedEventArgs e)
+        {
+            AddCarView carView = new AddCarView();
+            carView.Show();
         }
     }
 }

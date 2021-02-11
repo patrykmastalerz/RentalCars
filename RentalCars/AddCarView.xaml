@@ -1,0 +1,79 @@
+﻿<Window x:Class="RentalCars.AddCarView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RentalCars"
+        mc:Ignorable="d"
+        Title="Dodaj samochód" Height="300" Width="350">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="1" Grid.Column="1">Marka:</Label>
+        <TextBox 
+            Grid.Row="1"
+            Grid.Column="2"
+            x:Name="TextBoxBrand" 
+            Style="{StaticResource ResourceKey=TextBoxSize}"
+            />
+
+        <Label Grid.Row="2" Grid.Column="1">Model:</Label>
+        <TextBox 
+            Grid.Row="2"
+            Grid.Column="2"
+            x:Name="TextBoxModel" 
+            Style="{StaticResource ResourceKey=TextBoxSize}"
+            />
+
+        <Label Grid.Row="3" Grid.Column="1">Numer Rejestracyjny:</Label>
+        <TextBox 
+            Grid.Row="3"
+            Grid.Column="2"
+            x:Name="TextBoxRegistrationNumber" 
+            Style="{StaticResource ResourceKey=TextBoxSize}"
+            />
+
+        <Label Grid.Row="4" Grid.Column="1">Przegląd od:</Label>
+        <TextBox 
+            Grid.Row="4"
+            Grid.Column="2" 
+            x:Name="TextBoxFrom" 
+            Style="{StaticResource ResourceKey=TextBoxSize}"
+            />
+
+        <Label Grid.Row="5" Grid.Column="1">Cost za dzień:</Label>
+        <TextBox 
+            Grid.Row="5"
+            Grid.Column="2"
+            Margin="0,0,0,10"
+            x:Name="TextBoxCost" 
+            Style="{StaticResource ResourceKey=TextBoxSize}"
+            />
+
+        <Button x:Name="addCarButton" 
+                Grid.Row="7" 
+                Grid.Column="2" 
+                Content="Dodaj" 
+                MaxHeight="30" 
+                MaxWidth="50" 
+                />
+   
+    </Grid>
+</Window>
