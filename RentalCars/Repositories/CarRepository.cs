@@ -1,4 +1,5 @@
-﻿using RentalCars.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RentalCars.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,17 @@ namespace RentalCars.Repositories
             return db.Cars.Find(id);
         }
 
+        public Car GetFull(int id)
+        {
+            return db.Cars
+                .Include(c => c.CarService)
+                .Include(r => r.Rental)
+                .Where(x => x.Id == id).First();
+        }
+
         public List<Car> GetAll()
         {
-            return db.Cars.ToList();
+            return db.Cars.Include(c => c.CarService).ToList();
         }
 
         public void AddCar(Car car, CarService carService)
@@ -34,12 +43,30 @@ namespace RentalCars.Repositories
                 db.Cars.Add(car);
                 db.SaveChanges();
 
-                db.SaveChanges();
-
             }
         }
 
-       
+        public void UpdateCar(int Id, Car car)
+        {
+            var carId = this.GetFull(Id);
+
+            if (carId.Rental != null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (carId != null)
+            {
+                carId.Marka = car.Marka;
+                carId.Model = car.Model;
+                carId.RegistrationNumber = car.RegistrationNumber;
+                carId.Cost = car.Cost;
+
+                carId.CarService = car.CarService;
+
+                db.SaveChanges();
+            }
+        }
 
     }
 }

@@ -45,5 +45,12 @@ namespace RentalCars
             carGrid.ItemsSource = carRepository.GetAll();
             carGridData = carGrid;
         }
+
+        private void carEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var car = carGridData.SelectedItem as Car;
+            CarEditView carEditView = new CarEditView(car);
+            carEditView.Show();
+        }
     }
 }

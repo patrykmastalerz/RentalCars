@@ -27,6 +27,7 @@
         </Grid.RowDefinitions>
 
         <DataGrid 
+            AutoGenerateColumns="False"
             x:Name="carGrid"
             Grid.Column="2"
             Grid.Row="1">
@@ -34,11 +35,11 @@
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Marka" Binding="{Binding Path=Marka}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Model" Binding="{Binding Path=Model}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Cena" Binding="{Binding Path=Cost}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Cena" Binding="{Binding Path=Cost, StringFormat=F1}" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Rejestracja" Binding="{Binding Path=RegistrationNumber}" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Przeglad od" Binding="{Binding Path=CarService.From}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Przeglad do" Binding="{Binding Path=CarService.To}" ></DataGridTextColumn>
-
+                <DataGridTextColumn Header="Przeglad od" Binding="{Binding Path=CarService.From, StringFormat=d}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Przeglad do" Binding="{Binding Path=CarService.To, StringFormat=d}" ></DataGridTextColumn>
+                
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>
                         <TextBlock Text="Akcje" />
@@ -49,7 +50,8 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button 
                                     x:Name="carEditButton" 
-                                    Content="Edytuj" />
+                                    Content="Edytuj" Click="carEdit_Click" 
+                                    />
                                 <Button 
                                     x:Name="carDelateButton" 
                                     Content="Usuń"/>
@@ -62,7 +64,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid 
+        <DataGrid Margin="10"
             x:Name="rentalGrid"
             Grid.Column="3"
             Grid.Row="1">
