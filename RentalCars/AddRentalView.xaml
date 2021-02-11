@@ -65,7 +65,7 @@
                 Grid.Row="7" 
                 Grid.Column="2" 
                 Content="Dodaj"  
-                MaxWidth="50" 
+                MaxWidth="50" Click="addRental_Click" 
                 />
     </Grid>
 </Window>

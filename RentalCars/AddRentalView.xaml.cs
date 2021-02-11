@@ -21,5 +21,10 @@ namespace RentalCars
         {
             InitializeComponent();
         }
+
+        private void addRental_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
