@@ -5,8 +5,130 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentalCars"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Wypożyczalnia aut" Height="450" Width="1500">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+
+        <DataGrid 
+            x:Name="carGrid"
+            Grid.Column="2"
+            Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"></DataGridTextColumn>
+                <DataGridTextColumn Header="Marka"></DataGridTextColumn>
+                <DataGridTextColumn Header="Model"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cena" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Rejestracja" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Przeglad od"></DataGridTextColumn>
+                <DataGridTextColumn Header="Przeglad do" ></DataGridTextColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Akcje" />
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button 
+                                    x:Name="carEditButton" 
+                                    Content="Edytuj" />
+                                <Button 
+                                    x:Name="carDelateButton" 
+                                    Content="Usuń"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid 
+            x:Name="rentalGrid"
+            Grid.Column="3"
+            Grid.Row="1">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Rejestacja" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Id uzytkownika"></DataGridTextColumn>
+                <DataGridTextColumn Header="Od"></DataGridTextColumn>
+                <DataGridTextColumn Header="Do"></DataGridTextColumn>
+                <DataGridTextColumn Header="Koszt"></DataGridTextColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Akcje" />
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button 
+                                    x:Name="rentalEditButton"
+                                    Content="Edytuj"/>
+                                <Button 
+                                    x:Name="rentalDelateButton"
+                                    Content="Usuń" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <DataGrid 
+            x:Name="customersGrid" 
+            Grid.Column="4" 
+            Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id"></DataGridTextColumn>
+                <DataGridTextColumn Header="Imie"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nazwisko"></DataGridTextColumn>
+                <DataGridTextColumn Header="Telefonu"></DataGridTextColumn>
+
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.Header>
+                        <TextBlock Text="Akcje" />
+                    </DataGridTemplateColumn.Header>
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button 
+                                    x:Name="customerEditButton" 
+                                    Content="Edytuj" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="carButton" Grid.Column="2" Grid.Row="4" Content="Dodaj pojazd"/>
+        <Button x:Name="rentalButton" Grid.Column="3" Grid.Row="4" Content="Dodaj zamowienie"/>
+        <Button x:Name="customerButton" Grid.Column="4" Grid.Row="4" Content="Dodaj klienta"/>
+
 
     </Grid>
 </Window>
