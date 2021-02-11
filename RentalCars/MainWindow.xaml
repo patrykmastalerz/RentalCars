@@ -119,7 +119,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button 
                                     x:Name="customerEditButton" 
-                                    Content="Edytuj" />
+                                    Content="Edytuj" Click="editCustomer_Click" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

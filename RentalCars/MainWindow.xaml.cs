@@ -39,8 +39,6 @@ namespace RentalCars
         }
 
 
-
-
         private void addCarBatton_Click(object sender, RoutedEventArgs e)
         {
             AddCarView carView = new AddCarView();
@@ -90,6 +88,12 @@ namespace RentalCars
         {
             AddCustomerView addCustomerView = new AddCustomerView();
             addCustomerView.Show();
+        }
+
+        private void editCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            EditCustomerView editCustomerView = new EditCustomerView();
+            editCustomerView.Show();
         }
     }
 }
