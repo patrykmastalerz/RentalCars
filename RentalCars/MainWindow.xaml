@@ -54,7 +54,7 @@
                                     />
                                 <Button 
                                     x:Name="carDelateButton" 
-                                    Content="Usuń"/>
+                                    Content="Usuń" Click="carDelate_Click"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

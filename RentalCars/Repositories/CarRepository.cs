@@ -68,5 +68,19 @@ namespace RentalCars.Repositories
             }
         }
 
+
+        public void RemoveCar(Car car)
+        {
+
+            var newCar = db.Cars.Where(c => c.Rental == null && c.Id == car.Id)
+                    .First();
+
+            if (newCar != null)
+            {
+                db.Cars.Remove(newCar);
+                db.SaveChanges();
+            }
+        }
+
     }
 }

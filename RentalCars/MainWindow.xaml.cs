@@ -52,5 +52,24 @@ namespace RentalCars
             CarEditView carEditView = new CarEditView(car);
             carEditView.Show();
         }
+
+        private void carDelate_Click(object sender, RoutedEventArgs e)
+        {
+            var car = (Car)carGridData.SelectedItem;
+
+            try
+            {
+                carRepository.RemoveCar(car);
+                MessageBox.Show("Usunięto samochód");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nie można usunąć tego samochodu!");
+            }
+            finally
+            {
+                PopulateCarGrid();
+            }
+        }
     }
 }
