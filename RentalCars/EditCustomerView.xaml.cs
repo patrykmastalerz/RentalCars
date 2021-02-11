@@ -27,11 +27,21 @@ namespace RentalCars
             InitializeComponent();
             repository = new CustomerRepository();
             this.customer = customer;
+            InitializeFields();
         }
 
         private void editCustomer_Click(object sender, RoutedEventArgs e)
         {
-            UpdateCustomerToDataBase();
+            var validateMessage = ValidateCustomer();
+            if (string.IsNullOrEmpty(validateMessage) == false)
+            {
+                MessageBox.Show(validateMessage);
+            }
+            else
+            {
+                UpdateCustomerToDataBase();
+            }
+
         }
 
         private void UpdateCustomerToDataBase()
@@ -46,6 +56,7 @@ namespace RentalCars
                 };
 
                 repository.UpdateCustomer(customer.Id, newCustomer);
+                ResetFields();
                 MainWindow.customerGridData.ItemsSource = repository.GetAll();
                 MessageBox.Show("Zaktualizowano użytkownika!");
 
@@ -54,6 +65,47 @@ namespace RentalCars
             {
                 MessageBox.Show("Niestety wystapił błąd, który uniemożliwia zapisanie użytkownika!");
             }
+        }
+
+        private string ValidateCustomer()
+        {
+            string output = "";
+            if (string.IsNullOrEmpty(TextBoxFirstName.Text))
+            {
+                output = "Wprowadz Imie!";
+            }
+            else if (TextBoxFirstName.Text.Length > 30)
+            {
+                output = "Przekroczono liczbe znaków!";
+            }
+            else if (string.IsNullOrEmpty(TextBoxSecondName.Text))
+            {
+                output = "Wprowadz Nazwisko!";
+            }
+            else if (TextBoxSecondName.Text.Length > 30)
+            {
+                output = "Przekroczono liczbe znaków!";
+            }
+            else if ((TextBoxPhoneNumber.Text.Length != 9) || System.Text.RegularExpressions.Regex.IsMatch(TextBoxPhoneNumber.Text, "[^0-9]"))
+            {
+                output = "Wprowadz nie prawidłowy numer telefonu!";
+            }
+            return output;
+        }
+
+
+        private void ResetFields()
+        {
+            TextBoxFirstName.Text = "";
+            TextBoxSecondName.Text = "";
+            TextBoxPhoneNumber.Text = "";
+        }
+
+        private void InitializeFields()
+        {
+            TextBoxFirstName.Text = customer.FirstName;
+            TextBoxSecondName.Text = customer.SecondName;
+            TextBoxPhoneNumber.Text = customer.PhoneNumber;
         }
 
     }

@@ -53,7 +53,7 @@
         <Button x:Name="addButton" 
                 Grid.Row="5" 
                 Grid.Column="2" 
-                Content="Dodaj"  
+                Content="Edytuj"  
                 MaxWidth="50" Click="editCustomer_Click" 
                 />
     </Grid>

@@ -96,5 +96,7 @@ namespace RentalCars
             EditCustomerView editCustomerView = new EditCustomerView(customer);
             editCustomerView.Show();
         }
+
+
     }
 }
