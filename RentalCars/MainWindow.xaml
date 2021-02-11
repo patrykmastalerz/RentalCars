@@ -31,13 +31,13 @@
             Grid.Column="2"
             Grid.Row="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id"></DataGridTextColumn>
-                <DataGridTextColumn Header="Marka"></DataGridTextColumn>
-                <DataGridTextColumn Header="Model"></DataGridTextColumn>
-                <DataGridTextColumn Header="Cena" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Rejestracja" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Przeglad od"></DataGridTextColumn>
-                <DataGridTextColumn Header="Przeglad do" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Marka" Binding="{Binding Path=Marka}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Model" Binding="{Binding Path=Model}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Cena" Binding="{Binding Path=Cost}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Rejestracja" Binding="{Binding Path=RegistrationNumber}" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Przeglad od" Binding="{Binding Path=CarService.From}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Przeglad do" Binding="{Binding Path=CarService.To}" ></DataGridTextColumn>
 
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>

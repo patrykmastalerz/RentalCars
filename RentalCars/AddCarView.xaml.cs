@@ -63,6 +63,7 @@ namespace RentalCars
 
                 repository.AddCar(car, carService);
                 ResetFields();
+                MainWindow.carGridData.ItemsSource = repository.GetAll();
                 MessageBox.Show("Nowy samochód został dodany");
 
             }

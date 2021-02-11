@@ -22,16 +22,28 @@ namespace RentalCars
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly CarRepository carRepository = null;
+
+        public static DataGrid carGridData;
 
         public MainWindow()
         {
             InitializeComponent();
+            carRepository = new CarRepository();
+
+            PopulateCarGrid();
         }
 
         private void addCarBatton_Click(object sender, RoutedEventArgs e)
         {
             AddCarView carView = new AddCarView();
             carView.Show();
+        }
+
+        private void PopulateCarGrid()
+        {
+            carGrid.ItemsSource = carRepository.GetAll();
+            carGridData = carGrid;
         }
     }
 }
