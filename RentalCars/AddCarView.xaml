@@ -72,7 +72,7 @@
                 Grid.Column="2" 
                 Content="Dodaj" 
                 MaxHeight="30" 
-                MaxWidth="50" 
+                MaxWidth="50" Click="addCarButton_Click" 
                 />
    
     </Grid>

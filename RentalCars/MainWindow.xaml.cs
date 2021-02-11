@@ -1,4 +1,5 @@
 ﻿using RentalCars.Models;
+using RentalCars.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace RentalCars
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
