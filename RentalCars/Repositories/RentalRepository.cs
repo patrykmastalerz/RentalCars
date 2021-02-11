@@ -30,18 +30,33 @@ namespace RentalCars.Repositories
         {
             var newCustomer = db.Customers.Find(rental.CustomerId);
             var newCar = db.Cars.Find(rental.CarId);
+            var newRental = db.Rentals
+                .Include(c => c.Cars)
+                .Where( i => i.CarId == newCar.Id)
+                .First();
 
+            if (newCar == null)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (newRental.Cars == newCar)
+            {
+                throw new InvalidOperationException();
+            }
+
+            if (newCustomer == null)
+            {
+                throw new InvalidOperationException();
+            }
 
             if (rental != null)
             {
 
-
                 rental.Customers = newCustomer;
                 rental.Cars = newCar;
-
                 db.Rentals.Add(rental);
                 db.SaveChanges();
-
             }
         }
 
