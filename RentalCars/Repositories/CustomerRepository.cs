@@ -34,5 +34,18 @@ namespace RentalCars.Repositories
             }
         }
 
+        public void UpdateCustomer(int Id, Customer customer)
+        {
+            var customerId = this.Get(Id);
+            if (customerId != null)
+            {
+                customerId.FirstName = customer.FirstName;
+                customerId.SecondName = customer.SecondName;
+                customerId.PhoneNumber = customer.PhoneNumber;
+
+                db.SaveChanges();
+            }
+        }
+
     }
 }

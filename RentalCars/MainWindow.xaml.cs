@@ -92,7 +92,8 @@ namespace RentalCars
 
         private void editCustomer_Click(object sender, RoutedEventArgs e)
         {
-            EditCustomerView editCustomerView = new EditCustomerView();
+            var customer = customerGridData.SelectedItem as Customer;
+            EditCustomerView editCustomerView = new EditCustomerView(customer);
             editCustomerView.Show();
         }
     }
