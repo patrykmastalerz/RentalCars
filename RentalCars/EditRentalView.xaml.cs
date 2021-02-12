@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RentalCars.Models;
+using RentalCars.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +19,24 @@ namespace RentalCars
     /// </summary>
     public partial class EditRentalView : Window
     {
-        public EditRentalView()
+
+        private readonly RentalRepository rentalRepository = null;
+
+        private Rental rental;
+
+        public EditRentalView(Rental rental)
         {
             InitializeComponent();
+
+            rentalRepository = new RentalRepository();
+
+            this.rental = rental;
+
+        }
+
+        private void editRental_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

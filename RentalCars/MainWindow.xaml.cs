@@ -137,7 +137,9 @@ namespace RentalCars
 
         private void rentalEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            var rental = (Rental)rentalGridData.SelectedItem;
+            EditRentalView editRentalView = new EditRentalView(rental);
+            editRentalView.Show();
         }
     }
 }
