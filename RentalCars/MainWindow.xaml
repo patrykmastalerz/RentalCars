@@ -65,16 +65,17 @@
         </DataGrid>
 
         <DataGrid Margin="10"
+            AutoGenerateColumns="False"
             x:Name="rentalGrid"
             Grid.Column="3"
             Grid.Row="1">
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Rejestacja" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Id uzytkownika"></DataGridTextColumn>
-                <DataGridTextColumn Header="Od"></DataGridTextColumn>
-                <DataGridTextColumn Header="Do"></DataGridTextColumn>
-                <DataGridTextColumn Header="Koszt"></DataGridTextColumn>
+                <DataGridTextColumn Header="Rejestacja" Binding="{Binding Path=Cars.RegistrationNumber}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Id uzytkownika" Binding="{Binding Path=Customers.Id}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Od" Binding="{Binding Path=From, StringFormat=d}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Do" Binding="{Binding Path=To, StringFormat=d}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Koszt" Binding="{Binding Path=Cost, StringFormat=F1}"></DataGridTextColumn>
 
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.Header>

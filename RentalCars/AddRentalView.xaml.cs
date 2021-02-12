@@ -63,6 +63,7 @@ namespace RentalCars
                 try
                 {
                     rentalRepository.AddRental(rental);
+                    MainWindow.rentalGridData.ItemsSource = rentalRepository.GetAll();
                     MessageBox.Show("Nowy zamówienie zostało dodane");
                 }
                 catch (InvalidOperationException ex)

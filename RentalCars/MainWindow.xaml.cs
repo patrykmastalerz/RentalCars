@@ -24,26 +24,24 @@ namespace RentalCars
     {
         private readonly CarRepository carRepository = null;
         private readonly CustomerRepository customerRepository = null;
+        private readonly RentalRepository rentalRepository = null;
 
         public static DataGrid carGridData;
         public static DataGrid customerGridData;
+        public static DataGrid rentalGridData;
 
         public MainWindow()
         {
             InitializeComponent();
             carRepository = new CarRepository();
             customerRepository = new CustomerRepository();
+            rentalRepository = new RentalRepository();
 
             PopulateCarGrid();
             PopulateCustomerGrid();
+            PopulateRentalGrid();
         }
 
-
-        private void addCarBatton_Click(object sender, RoutedEventArgs e)
-        {
-            AddCarView carView = new AddCarView();
-            carView.Show();
-        }
 
         private void PopulateCarGrid()
         {
@@ -56,6 +54,21 @@ namespace RentalCars
             customersGrid.ItemsSource = customerRepository.GetAll();
             customerGridData = customersGrid;
         }
+
+        private void PopulateRentalGrid()
+        {
+            rentalGrid.ItemsSource = rentalRepository.GetAll();
+            rentalGridData = rentalGrid;
+        }
+
+
+        private void addCarBatton_Click(object sender, RoutedEventArgs e)
+        {
+            AddCarView carView = new AddCarView();
+            carView.Show();
+        }
+
+
 
 
         private void carEdit_Click(object sender, RoutedEventArgs e)
