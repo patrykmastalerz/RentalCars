@@ -118,7 +118,21 @@ namespace RentalCars
 
         private void rentalDelete_Click(object sender, RoutedEventArgs e)
         {
+            var rental = (Rental)rentalGridData.SelectedItem;
 
+            try
+            {
+                rentalRepository.RemoveRental(rental.Id);
+                MessageBox.Show("Usunięto zamówienie");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Nie można usunąć tego zamówienia!");
+            }
+            finally
+            {
+                PopulateRentalGrid();
+            }
         }
     }
 }
