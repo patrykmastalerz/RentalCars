@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentalCars"
         mc:Ignorable="d"
-        Title="EditRentalView" Height="250" Width="350">
+        Title="Edytuj zamówienie" Height="250" Width="350">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -55,8 +55,7 @@
         <Button x:Name="addButton" 
                 Grid.Row="6" 
                 Grid.Column="2" 
-                Content="Dodaj"  
-                MaxWidth="50" Click="addRental_Click" 
+                Content="Edytuj"  
                 />
     </Grid>
 </Window>
