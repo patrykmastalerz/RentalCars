@@ -21,8 +21,9 @@ namespace RentalCars
     {
 
         private readonly CarRepository repository = null;
-
         private Car car;
+        private DateTime textBoxData;
+        private decimal cost;
 
         public CarEditView(Car car)
         {
@@ -55,13 +56,13 @@ namespace RentalCars
                     Marka = TextBoxBrand.Text,
                     Model = TextBoxModel.Text,
                     RegistrationNumber = TextBoxRegistrationNumber.Text,
-                    Cost = Decimal.Parse(TextBoxCost.Text),
+                    Cost = cost,
                 };
 
                 CarService newCarService = new CarService()
                 {
-                    From = DateTime.Parse(TextBoxFrom.Text),
-                    To = DateTime.Parse(TextBoxFrom.Text).AddYears(1)
+                    From = textBoxData,
+                    To = textBoxData.AddYears(1)
                 };
 
                 newCar.CarService = newCarService;
@@ -94,6 +95,7 @@ namespace RentalCars
             string output = "";
 
 
+
             if (string.IsNullOrEmpty(TextBoxBrand.Text))
             {
                 output = "Wprowadz Marke!";
@@ -122,9 +124,17 @@ namespace RentalCars
             {
                 output = "Wprowadż date!";
             }
+            else if (!DateTime.TryParse(TextBoxFrom.Text, out textBoxData))
+            {
+                output = "Niepoprawny format daty!";
+            }
             else if (string.IsNullOrEmpty(TextBoxCost.Text))
             {
                 output = "Wprowadż kwote!";
+            }
+            else if (!decimal.TryParse(TextBoxCost.Text, out cost))
+            {
+                output = "Wprowadzona kwota jest nieprawidłowa!";
             }
             return output;
         }

@@ -31,7 +31,15 @@ namespace RentalCars
 
         private void addRental_Click(object sender, RoutedEventArgs e)
         {
-            SaveRentalToDataBase();
+            var validationMessage = ValidateRental();
+            if (string.IsNullOrEmpty(validationMessage) == false)
+            {
+                MessageBox.Show(validationMessage);
+            }
+            else
+            {
+                SaveRentalToDataBase();
+            }
 
         }
 
@@ -71,6 +79,30 @@ namespace RentalCars
 
 
 
+        }
+
+        private string ValidateRental()
+        {
+            string output = "";
+
+            if (string.IsNullOrEmpty(TextBoxCustomerId.Text) || System.Text.RegularExpressions.Regex.IsMatch(TextBoxRentalDuration.Text, "[^0-9]"))
+            {
+                output = "Wprowadż numer użytkownika!";
+            }
+            else if (string.IsNullOrEmpty(TextBoxCar.Text) || System.Text.RegularExpressions.Regex.IsMatch(TextBoxRentalDuration.Text, "[^0-9]"))
+            {
+                output = "Wprowadż numer samochodu!";
+            }
+            else if (string.IsNullOrEmpty(TextBoxRentalFrom.Text))
+            {
+                output = "Wprowadż date!";
+            }
+            else if (string.IsNullOrEmpty(TextBoxRentalDuration.Text) || System.Text.RegularExpressions.Regex.IsMatch(TextBoxRentalDuration.Text, "[^0-9]"))
+            {
+                output = "Wprowadż czas wynajmu!";
+            }
+
+            return output;
         }
 
         private decimal CalculateCost()

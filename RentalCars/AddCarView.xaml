@@ -58,7 +58,7 @@
             Style="{StaticResource ResourceKey=TextBoxSize}"
             />
 
-        <Label Grid.Row="5" Grid.Column="1">Cost za dzień:</Label>
+        <Label Grid.Row="5" Grid.Column="1">Cena za dzień:</Label>
         <TextBox 
             Grid.Row="5"
             Grid.Column="2"
