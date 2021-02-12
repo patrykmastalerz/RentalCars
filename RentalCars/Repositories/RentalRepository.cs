@@ -28,26 +28,27 @@ namespace RentalCars.Repositories
 
         public void AddRental(Rental rental)
         {
+            var newRental = db.Rentals.Where(x => x.CarId == rental.CarId).FirstOrDefault();
+
+
+            
             var newCustomer = db.Customers.Find(rental.CustomerId);
             var newCar = db.Cars.Find(rental.CarId);
-            var newRental = db.Rentals
-                .Include(c => c.Cars)
-                .Where( i => i.CarId == newCar.Id)
-                .First();
+
 
             if (newCar == null)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Nie ma takiego samochodu");
             }
 
-            if (newRental.Cars == newCar)
+            if (newRental != null)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Jest już rezerwacja na ten samochód");
             }
 
             if (newCustomer == null)
             {
-                throw new InvalidOperationException();
+                throw new InvalidOperationException("Nie ma takiego użytkownika");
             }
 
             if (rental != null)

@@ -21,6 +21,10 @@ namespace RentalCars
     {
         private readonly RentalRepository rentalRepository = null;
         private readonly CarRepository carRepository = null;
+        private DateTime textBoxData;
+        private int customerId;
+        private int carId;
+        private int rentalDuration;
 
         public AddRentalView()
         {
@@ -49,11 +53,11 @@ namespace RentalCars
             {
                 Rental rental = new Rental()
                 {
-                    From = DateTime.Parse(TextBoxRentalFrom.Text),
-                    To = DateTime.Parse(TextBoxRentalFrom.Text).AddDays(Convert.ToInt32(TextBoxRentalDuration.Text)),
+                    From = textBoxData,
+                    To = textBoxData.AddDays(Convert.ToInt32(TextBoxRentalDuration.Text)),
                     Cost = CalculateCost(),
-                    CustomerId = Convert.ToInt32(TextBoxCustomerId.Text),
-                    CarId = Convert.ToInt32(TextBoxCar.Text)
+                    CustomerId = customerId,
+                    CarId = carId
                 };
 
                 try
@@ -61,9 +65,9 @@ namespace RentalCars
                     rentalRepository.AddRental(rental);
                     MessageBox.Show("Nowy zamówienie zostało dodane");
                 }
-                catch (InvalidOperationException)
+                catch (InvalidOperationException ex)
                 {
-                    MessageBox.Show("Wprowadzono nieprawidłowe id użytkownika lub id samochodu!");
+                    MessageBox.Show(ex.Message);
                 }
                 catch (Exception e)
                 {
@@ -85,19 +89,19 @@ namespace RentalCars
         {
             string output = "";
 
-            if (string.IsNullOrEmpty(TextBoxCustomerId.Text) || System.Text.RegularExpressions.Regex.IsMatch(TextBoxRentalDuration.Text, "[^0-9]"))
-            {
-                output = "Wprowadż numer użytkownika!";
-            }
-            else if (string.IsNullOrEmpty(TextBoxCar.Text) || System.Text.RegularExpressions.Regex.IsMatch(TextBoxRentalDuration.Text, "[^0-9]"))
+            if (!int.TryParse(TextBoxCar.Text, out carId))
             {
                 output = "Wprowadż numer samochodu!";
             }
-            else if (string.IsNullOrEmpty(TextBoxRentalFrom.Text))
+            else if (!int.TryParse(TextBoxCustomerId.Text, out customerId))
+            {
+                output = "Wprowadż numer użytkownika!";
+            }
+            else if (!DateTime.TryParse(TextBoxRentalFrom.Text, out textBoxData))
             {
                 output = "Wprowadż date!";
             }
-            else if (string.IsNullOrEmpty(TextBoxRentalDuration.Text) || System.Text.RegularExpressions.Regex.IsMatch(TextBoxRentalDuration.Text, "[^0-9]"))
+            else if (!int.TryParse(TextBoxCustomerId.Text, out rentalDuration))
             {
                 output = "Wprowadż czas wynajmu!";
             }
@@ -107,10 +111,10 @@ namespace RentalCars
 
         private decimal CalculateCost()
         {
-            var duration = Decimal.Parse(TextBoxRentalDuration.Text);
-            var carId = Convert.ToInt32(TextBoxCar.Text);
+            var duration = rentalDuration;
+            var carToFind = carId;
 
-            var car = carRepository.Get(carId);
+            var car = carRepository.Get(carToFind);
             if (car != null)
             {
                 var carCost = car.Cost;
