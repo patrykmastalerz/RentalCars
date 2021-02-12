@@ -87,7 +87,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button 
                                     x:Name="rentalEditButton"
-                                    Content="Edytuj"/>
+                                    Content="Edytuj" Click="rentalEdit_Click" />
                                 <Button 
                                     x:Name="rentalDelateButton"
                                     Content="Usuń" Click="rentalDelete_Click" />

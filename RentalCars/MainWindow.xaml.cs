@@ -134,5 +134,10 @@ namespace RentalCars
                 PopulateRentalGrid();
             }
         }
+
+        private void rentalEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
