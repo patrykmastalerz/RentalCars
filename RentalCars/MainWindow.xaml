@@ -90,7 +90,7 @@
                                     Content="Edytuj"/>
                                 <Button 
                                     x:Name="rentalDelateButton"
-                                    Content="Usuń" />
+                                    Content="Usuń" Click="rentalDelete_Click" />
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -61,5 +61,16 @@ namespace RentalCars.Repositories
             }
         }
 
+        public void RemoveRental(int id)
+        {
+            var rental = this.Get(id);
+            if (rental != null)
+            {
+                db.Rentals.Remove(rental);
+                db.SaveChanges();
+            }
+        }
+
+
     }
 }

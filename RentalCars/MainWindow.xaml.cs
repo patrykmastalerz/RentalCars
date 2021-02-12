@@ -115,5 +115,10 @@ namespace RentalCars
             AddRentalView addRentalView = new AddRentalView();
             addRentalView.Show();
         }
+
+        private void rentalDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
