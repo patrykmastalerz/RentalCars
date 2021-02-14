@@ -102,7 +102,7 @@ namespace RentalCars
             {
                 output = "Wprowadż date!";
             }
-            else if (!int.TryParse(TextBoxCustomerId.Text, out rentalDuration))
+            else if (!int.TryParse(TextBoxRentalDuration.Text, out rentalDuration))
             {
                 output = "Wprowadż czas wynajmu!";
             }

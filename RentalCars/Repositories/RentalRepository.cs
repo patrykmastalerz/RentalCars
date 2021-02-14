@@ -71,6 +71,37 @@ namespace RentalCars.Repositories
             }
         }
 
+        public void UpdateRental(int id, Rental rental)
+        {
+            var toUpdate = this.Get(id);
+            var newRental = db.Rentals.Where(x => x.CarId == rental.CarId).FirstOrDefault();
+
+            var newCar = db.Cars.Find(rental.CarId);
+
+
+            if (newCar == null)
+            {
+                throw new InvalidOperationException("Nie ma takiego samochodu");
+            }
+
+            if (newRental != null)
+            {
+                throw new InvalidOperationException("Jest już rezerwacja na ten samochód");
+            }
+
+
+            if (rental != null)
+            {
+
+                toUpdate.From = rental.From;
+                toUpdate.To = rental.To;
+                toUpdate.Cost = rental.Cost;
+                toUpdate.Cars = newCar;
+                db.Rentals.Add(rental);
+                db.SaveChanges();
+            }
+        }
+
 
     }
 }

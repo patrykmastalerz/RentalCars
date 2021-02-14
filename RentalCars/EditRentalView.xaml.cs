@@ -21,14 +21,22 @@ namespace RentalCars
     {
 
         private readonly RentalRepository rentalRepository = null;
+        private readonly CarRepository carRepository = null;
 
         private Rental rental;
+        private DateTime textBoxData;
+        private int customerId;
+        private int carId;
+        private int rentalDuration;
+
 
         public EditRentalView(Rental rental)
         {
             InitializeComponent();
 
             rentalRepository = new RentalRepository();
+            carRepository = new CarRepository();
+
 
             this.rental = rental;
 
@@ -36,7 +44,87 @@ namespace RentalCars
 
         private void editRental_Click(object sender, RoutedEventArgs e)
         {
+            var validationMessage = ValidateRental();
+            if (string.IsNullOrEmpty(validationMessage) == false)
+            {
+                MessageBox.Show(validationMessage);
+            }
+            else
+            {
+                EditRentalToDataBase();
+            }
 
+        }
+
+        private void EditRentalToDataBase()
+        {
+            try
+            {
+                Rental newRental = new Rental()
+                {
+                    From = textBoxData,
+                    To = textBoxData.AddDays(rentalDuration),
+                    Cost = CalculateCost(),
+                    CarId = carId
+                };
+
+                try
+                {
+                    rentalRepository.UpdateRental(rental.Id, newRental);
+                    MainWindow.rentalGridData.ItemsSource = rentalRepository.GetAll();
+                    MessageBox.Show("Zaktualizowano zamówienie!");
+                }
+                catch (InvalidOperationException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                }
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Niestety, podane dane są nieprawidłowe - popraw je!", "", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            }
+        }
+
+        private string ValidateRental()
+        {
+            string output = "";
+
+            if (!int.TryParse(TextBoxCar.Text, out carId))
+            {
+                output = "Wprowadż numer samochodu!";
+            }
+            else if (!DateTime.TryParse(TextBoxRentalFrom.Text, out textBoxData))
+            {
+                output = "Wprowadż date!";
+            }
+            else if (!int.TryParse(TextBoxRentalDuration.Text, out rentalDuration))
+            {
+                output = "Wprowadż czas wynajmu!";
+            }
+
+            return output;
+        }
+
+        private decimal CalculateCost()
+        {
+            var duration = rentalDuration;
+            var carToFind = carId;
+
+            var car = carRepository.Get(carToFind);
+            if (car != null)
+            {
+                var carCost = car.Cost;
+                return (decimal)(duration * carCost);
+            }
+
+            return 0;
         }
     }
 }
