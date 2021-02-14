@@ -55,6 +55,7 @@
                 Grid.Column="2" 
                 Content="Edytuj"  
                 MaxWidth="50" Click="editCustomer_Click" 
+                Style="{StaticResource ResourceKey=EditButton}"
                 />
     </Grid>
 </Window>

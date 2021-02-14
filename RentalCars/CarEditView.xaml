@@ -72,7 +72,7 @@
                 Content="Edytuj" 
                 MaxHeight="30" 
                 MaxWidth="50" Click="editCar_Click" 
-                
+                Style="{StaticResource ResourceKey=EditButton}"
                 />
 
     </Grid>

@@ -73,6 +73,7 @@
                 Content="Dodaj" 
                 MaxHeight="30" 
                 MaxWidth="50" Click="addCarButton_Click" 
+                Style="{StaticResource ResourceKey=AddButton}"
                 />
    
     </Grid>

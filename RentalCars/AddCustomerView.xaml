@@ -55,6 +55,7 @@
                 Grid.Column="2" 
                 Content="Dodaj"  
                 MaxWidth="50" Click="addCustomer_Click" 
+                Style="{StaticResource ResourceKey=AddButton}"
                 />
     </Grid>
 </Window>

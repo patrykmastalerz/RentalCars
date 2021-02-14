@@ -56,6 +56,7 @@
                 Grid.Row="6" 
                 Grid.Column="2" 
                 Content="Edytuj" Click="editRental_Click"  
+                Style="{StaticResource ResourceKey=EditButton}"
                 />
     </Grid>
 </Window>

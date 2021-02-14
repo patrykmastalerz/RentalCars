@@ -51,10 +51,12 @@
                                 <Button 
                                     x:Name="carEditButton" 
                                     Content="Edytuj" Click="carEdit_Click" 
+                                    Style="{StaticResource ResourceKey=GridButton}"
                                     />
                                 <Button 
                                     x:Name="carDelateButton" 
-                                    Content="Usuń" Click="carDelate_Click"/>
+                                    Content="Usuń" Click="carDelate_Click"
+                                    Style="{StaticResource ResourceKey=GridButton}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -87,10 +89,12 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button 
                                     x:Name="rentalEditButton"
-                                    Content="Edytuj" Click="rentalEdit_Click" />
+                                    Content="Edytuj" Click="rentalEdit_Click"
+                                    Style="{StaticResource ResourceKey=GridButton}"/>
                                 <Button 
                                     x:Name="rentalDelateButton"
-                                    Content="Usuń" Click="rentalDelete_Click" />
+                                    Content="Usuń" Click="rentalDelete_Click"
+                                    Style="{StaticResource ResourceKey=GridButton}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -120,7 +124,8 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button 
                                     x:Name="customerEditButton" 
-                                    Content="Edytuj" Click="editCustomer_Click" />
+                                    Content="Edytuj" Click="editCustomer_Click"
+                                    Style="{StaticResource ResourceKey=GridButton}"/>
                             </StackPanel>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
@@ -129,9 +134,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="carButton" Grid.Column="2" Grid.Row="4" Content="Dodaj pojazd" Click="addCarBatton_Click"/>
-        <Button x:Name="rentalButton" Grid.Column="3" Grid.Row="4" Content="Dodaj zamowienie" Click="addRental_Click" />
-        <Button x:Name="customerButton" Grid.Column="4" Grid.Row="4" Content="Dodaj klienta" Click="addCustomer_Click" />
+        <Button x:Name="carButton" Grid.Column="2" Grid.Row="4" Content="Dodaj pojazd" Click="addCarBatton_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
+        <Button x:Name="rentalButton" Grid.Column="3" Grid.Row="4" Content="Dodaj zamowienie" Click="addRental_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
+        <Button x:Name="customerButton" Grid.Column="4" Grid.Row="4" Content="Dodaj klienta" Click="addCustomer_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
 
 
     </Grid>
