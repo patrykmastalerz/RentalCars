@@ -5,6 +5,55 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#444444"></Setter>
+        </Style>
+
+        <Style x:Key="GridHeader" TargetType="DataGridColumnHeader">
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#404040" />
+            <Setter Property="Foreground" Value="#FFB3B3B3" />
+            <Setter Property="MinHeight" Value="30" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="BorderBrush" Value="Black" />
+        </Style>
+
+        <Style x:Key="Header" TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+
+        <Style x:Key="MainGrid" TargetType="DataGrid">
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#FFB3B3B3"/>
+            <Setter Property="GridLinesVisibility" Value="All"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
+            <Setter Property="Height" Value="300" />
+            <Setter Property="Margin" Value="10, 0, 10, 0" />
+            <Setter Property="AutoGenerateColumns" Value="False" />
+            <Setter Property="CanUserAddRows" Value="False" />
+            <Setter Property="Foreground" Value="#FFB3B3B3"/>
+            <Setter Property="Background" Value="#3C3131"/>
+            <Setter Property="RowBackground" Value="#292424"/>
+        </Style>
+
+        <Style x:Key="MainGridCell" TargetType="DataGridCell">
+            <Setter Property="Background" Value="#292424"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+
+        </Style>
+
+
+
+
         <Style x:Key="TextBoxSize" TargetType="TextBox">
             <Setter Property="Width" Value="150"/>
             <Setter Property="Background" Value="#FFB3B3B3"></Setter>
@@ -15,6 +64,7 @@
             <Setter Property="Background" Value="#A18F8F"/>
             <Setter Property="Width" Value="45"/>
             <Setter Property="Padding" Value="5"/>
+            <Setter Property="Cursor" Value="Hand" />
         </Style>
 
         <Style x:Key="MainWindowButtonAdd" TargetType="Button">
@@ -22,18 +72,21 @@
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Margin" Value="20" />
             <Setter Property="Background" Value="#FFB3B3B3"></Setter>
+            <Setter Property="Cursor" Value="Hand" />
         </Style>
 
         <Style x:Key="AddButton" TargetType="Button">
             <Setter Property="Width" Value="50"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Background" Value="#FFB3B3B3"></Setter>
+            <Setter Property="Cursor" Value="Hand" />
         </Style>
 
         <Style x:Key="EditButton" TargetType="Button">
             <Setter Property="Width" Value="55"/>
             <Setter Property="Padding" Value="5"/>
             <Setter Property="Background" Value="#FFB3B3B3"></Setter>
+            <Setter Property="Cursor" Value="Hand" />
         </Style>
 
     </Application.Resources>

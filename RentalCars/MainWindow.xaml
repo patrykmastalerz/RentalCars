@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentalCars"
         mc:Ignorable="d"
-        Title="Wypożyczalnia aut" Height="450" Width="1500">
+        Title="Wypożyczalnia aut" Height="500" Width="1500">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="auto" />
@@ -20,18 +21,27 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20" />
             <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
             <RowDefinition Height="*" />
             <RowDefinition Height="auto" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
+        <TextBlock Text="POJAZDY"
+                   Style="{StaticResource ResourceKey=Header}" 
+                   Grid.Column="2"
+            Grid.Row="1"/>
         <DataGrid 
-            AutoGenerateColumns="False"
             x:Name="carGrid"
             Grid.Column="2"
-            Grid.Row="1">
+            Grid.Row="2"
+            Style="{StaticResource ResourceKey=MainGrid}" 
+            ColumnHeaderStyle="{StaticResource GridHeader}"
+            CellStyle="{StaticResource ResourceKey=MainGridCell}" 
+            >
             <DataGrid.Columns>
+                
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Marka" Binding="{Binding Path=Marka}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Model" Binding="{Binding Path=Model}"></DataGridTextColumn>
@@ -66,11 +76,19 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <TextBlock Text="ZAMÓWIENIA"
+                   Grid.Column="3"
+                   Style="{StaticResource ResourceKey=Header}" 
+            Grid.Row="1"/>
+        
         <DataGrid Margin="10"
-            AutoGenerateColumns="False"
             x:Name="rentalGrid"
             Grid.Column="3"
-            Grid.Row="1">
+            Grid.Row="2"
+            CellStyle="{StaticResource ResourceKey=MainGridCell}" 
+            ColumnHeaderStyle="{StaticResource GridHeader}"
+            Style="{StaticResource ResourceKey=MainGrid}" 
+                  >
 
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Rejestacja" Binding="{Binding Path=Cars.RegistrationNumber}"></DataGridTextColumn>
@@ -103,11 +121,19 @@
             </DataGrid.Columns>
         </DataGrid>
 
+        <TextBlock Text="KLIENCI"
+                   Grid.Column="4"
+                   Style="{StaticResource ResourceKey=Header}" 
+                   
+            Grid.Row="1"/>
+        
         <DataGrid 
-            AutoGenerateColumns="False"
+            ColumnHeaderStyle="{StaticResource GridHeader}"
+            Style="{StaticResource ResourceKey=MainGrid}" 
+            CellStyle="{StaticResource ResourceKey=MainGridCell}" 
             x:Name="customersGrid" 
             Grid.Column="4" 
-            Grid.Row="1">
+            Grid.Row="2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Imie" Binding="{Binding Path=FirstName}"></DataGridTextColumn>
@@ -134,9 +160,9 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button x:Name="carButton" Grid.Column="2" Grid.Row="4" Content="Dodaj pojazd" Click="addCarBatton_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
-        <Button x:Name="rentalButton" Grid.Column="3" Grid.Row="4" Content="Dodaj zamowienie" Click="addRental_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
-        <Button x:Name="customerButton" Grid.Column="4" Grid.Row="4" Content="Dodaj klienta" Click="addCustomer_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
+        <Button x:Name="carButton" Grid.Column="2" Grid.Row="5" Content="Dodaj pojazd" Click="addCarBatton_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
+        <Button x:Name="rentalButton" Grid.Column="3" Grid.Row="5" Content="Dodaj zamowienie" Click="addRental_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
+        <Button x:Name="customerButton" Grid.Column="4" Grid.Row="5" Content="Dodaj klienta" Click="addCustomer_Click" Style="{StaticResource ResourceKey=MainWindowButtonAdd}"/>
 
 
     </Grid>
