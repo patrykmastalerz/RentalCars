@@ -64,6 +64,7 @@ namespace RentalCars
                 {
                     rentalRepository.AddRental(rental);
                     MainWindow.rentalGridData.ItemsSource = rentalRepository.GetAll();
+                    ResetFields();
                     MessageBox.Show("Nowy zamówienie zostało dodane");
                 }
                 catch (InvalidOperationException ex)
@@ -84,6 +85,14 @@ namespace RentalCars
 
 
 
+        }
+
+        private void ResetFields()
+        {
+            TextBoxCar.Text = "";
+            TextBoxCustomerId.Text = "";
+            TextBoxRentalFrom.Text = "";
+            TextBoxRentalDuration.Text = "";
         }
 
         private string ValidateRental()

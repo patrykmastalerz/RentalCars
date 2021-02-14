@@ -25,7 +25,6 @@ namespace RentalCars
 
         private Rental rental;
         private DateTime textBoxData;
-        private int customerId;
         private int carId;
         private int rentalDuration;
 
@@ -39,7 +38,7 @@ namespace RentalCars
 
 
             this.rental = rental;
-
+            InitializeFields();
         }
 
         private void editRental_Click(object sender, RoutedEventArgs e)
@@ -72,6 +71,7 @@ namespace RentalCars
                 {
                     rentalRepository.UpdateRental(rental.Id, newRental);
                     MainWindow.rentalGridData.ItemsSource = rentalRepository.GetAll();
+                    ResetFields();
                     MessageBox.Show("Zaktualizowano zamówienie!");
                 }
                 catch (InvalidOperationException ex)
@@ -90,6 +90,30 @@ namespace RentalCars
                 MessageBox.Show("Niestety, podane dane są nieprawidłowe - popraw je!", "", MessageBoxButton.OK,
                     MessageBoxImage.Error);
             }
+        }
+
+        private void InitializeFields()
+        {
+            TextBoxCar.Text = rental.CarId.ToString();
+            TextBoxRentalFrom.Text = rental.From.ToShortDateString();
+            TextBoxRentalDuration.Text = CalculateDuration().ToString();
+
+        }
+
+        private int CalculateDuration()
+        {
+            var from = rental.From;
+            var to = rental.To;
+            var result = to - from;
+
+            return result.Days;
+        }
+
+        private void ResetFields()
+        {
+            TextBoxCar.Text = "";
+            TextBoxRentalFrom.Text = "";
+            TextBoxRentalDuration.Text = "";
         }
 
         private string ValidateRental()
@@ -126,5 +150,7 @@ namespace RentalCars
 
             return 0;
         }
+
+
     }
 }
