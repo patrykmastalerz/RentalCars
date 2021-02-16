@@ -73,7 +73,8 @@ namespace RentalCars.Repositories
         }
 
         /// <summary>
-        /// Metoda służąca do zmodyfikowania obiektu Car znalezionego w bazie danych za pomocą ID. Metoda pozwala na modyfikacje wartości dla takich pól jak Marka, Model, Cost oraz RegistrationNumber oraz obiektu CarService
+        /// Metoda służąca do zmodyfikowania obiektu Car znalezionego w bazie danych za pomocą ID. 
+        /// Metoda pozwala na modyfikacje wartości dla takich pól jak Marka, Model, Cost oraz RegistrationNumber oraz obiektu CarService
         /// </summary>
         /// <param name="Id">Integer użyty do wyszukania obiektu w bazie danych</param>
         /// <param name="car">Obiekt Car, którego zawartość zostanie przypisana do znalezionego obiektu w bazie danych</param>
@@ -102,7 +103,8 @@ namespace RentalCars.Repositories
         /// <summary>
         /// Metoda służąca do usunięcia obiektu Car z bazy danych, tylko takiego który nie ma przypisanej relacji do obiektu Rental
         /// </summary>
-        /// <param name="car">Obiekt Car, który zostanie usunięty w bazie danych. Użyty do znalezienia za pomoca jego ID obiektu w bazie danych oraz jego relacji do obiektu Rental</param>
+        /// <param name="car">Obiekt Car, który zostanie usunięty w bazie danych. 
+        /// Użyty do znalezienia za pomoca jego ID obiektu w bazie danych oraz jego relacji do obiektu Rental</param>
         public void RemoveCar(Car car)
         {
 

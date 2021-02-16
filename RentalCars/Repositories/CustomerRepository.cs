@@ -54,7 +54,8 @@ namespace RentalCars.Repositories
         }
 
         /// <summary>
-        /// Metoda służąca do zmodyfikowaia obiektu Customer, znalezionego w bazie danych za pomocą ID. Metoda pozwala modyfikować takie pola jak FirstName, SecondName oraz PhoneNumber
+        /// Metoda służąca do zmodyfikowaia obiektu Customer, znalezionego w bazie danych za pomocą ID. 
+        /// Metoda pozwala modyfikować takie pola jak FirstName, SecondName oraz PhoneNumber
         /// </summary>
         /// <param name="Id">Integer użyty do znalezienia obiektu Customer w bazie danych</param>
         /// <param name="customer">Obiekt typu Customer, którego pola zostaną przypisane do modyfikowanego obiektu Customer w bazie danych</param>
