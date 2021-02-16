@@ -27,9 +27,9 @@ namespace RentalCars
         private decimal cost;
 
         /// <summary>
-        /// Inicjalizuje obiekt CarEditView oraz inicjalizuje obiekt CarRepository użyty w klasie
+        /// Inicjalizuje obiekt CarEditView, obiekt CarRepository użyty w klasie oraz inicjalizuje pola. Przypisuje również parametr typu Car do klasy.
         /// </summary>
-        /// <param name="car"></param>
+        /// <param name="car">Obiekt typu Car, użyty do inizjalizacji pól oraz do wyszukania obiektu do modyfikacje na podstawie jego ID</param>
         public CarEditView(Car car)
         {
             InitializeComponent();

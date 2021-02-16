@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace RentalCars
 {
     /// <summary>
-    /// Interaction logic for EditCustomerView.xaml
+    /// Widok odpowiedzialny za edytowanie obiektu Customer. 
+    /// Widok wstępnie wpisuje obecne wartości obiektu Customer, waliduje wpisane wartości przez użytkownika oraz resetuje je po pozytywnej modyfikacji. 
     /// </summary>
     public partial class EditCustomerView : Window
     {
         private readonly CustomerRepository repository = null;
         private Customer customer;
 
+        /// <summary>
+        /// Inicjalizuje obiekt EditCustomerView, obiekt CustomerRepository użyty w klasie oraz inicjalizuje pola. Przypisuje również parametr typu Customer do klasy.
+        /// </summary>
+        /// <param name="customer">Obiekt typu Customer, użyty do inizjalizacji pól oraz do wyszukania obiektu do modyfikacje na podstawie jego ID</param>
         public EditCustomerView(Customer customer)
         {
             InitializeComponent();
