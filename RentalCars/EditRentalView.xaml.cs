@@ -15,7 +15,9 @@ using System.Windows.Shapes;
 namespace RentalCars
 {
     /// <summary>
-    /// Interaction logic for EditRentalView.xaml
+    /// Widok odpowiedzialny za modyfikowanie wybranego obiektu Rental. 
+    /// Widok wstępnie wpisuje obecne wartości obiektu Rental, waliduje wpisane wartości przez użytkownika oraz resetuje je po pozytywnej modyfikacji. 
+    /// Widok rówież oblicza oblicza koszt wynajmu na podstawie długości wynajmu.
     /// </summary>
     public partial class EditRentalView : Window
     {
@@ -28,7 +30,11 @@ namespace RentalCars
         private int carId;
         private int rentalDuration;
 
-
+        /// <summary>
+        /// Inicjalizuje obiekt EditRentalView, obiekt CarRepository, obiekt RentalRepository użyte w klasie oraz inicjalizuje pola. 
+        /// Przypisuje również parametr typu Rental do klasy.
+        /// </summary>
+        /// <param name="rental">Obiekt typu Rental, użyty do inizjalizacji pól oraz do wyszukania obiektu do modyfikacje na podstawie jego ID</param>
         public EditRentalView(Rental rental)
         {
             InitializeComponent();
