@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 namespace RentalCars
 {
     /// <summary>
-    /// Interaction logic for AddRentalView.xaml
+    /// Widok odpowiedzialny za dodanie wynajmu do bazy danych. Widok waliduje wpisane przez użytkownika w polach wartości oraz po pozytywnym dodaniu
+    /// resetuje je, oraz oblicza koszt wynajmu.
     /// </summary>
     public partial class AddRentalView : Window
     {
@@ -26,6 +27,9 @@ namespace RentalCars
         private int carId;
         private int rentalDuration;
 
+        /// <summary>
+        /// Inicjalizuje obiekt AddRentalView oraz inicjalizuje RentalRepository oraz CarRepository użyte w klasie.
+        /// </summary>
         public AddRentalView()
         {
             InitializeComponent();
