@@ -9,7 +9,7 @@ namespace RentalCars.Repositories
 {
 
     /// <summary>
-    /// Repozytorium odpowiedzialne za odczytywanie, modyfikowanie oraz usuwanie modelu Car do bazy danych
+    /// Repozytorium odpowiedzialne za zapisywanie, odczytywanie, modyfikowanie oraz usuwanie obiektu Car do bazy danych
     /// </summary>
     public class CarRepository
     {
@@ -73,7 +73,7 @@ namespace RentalCars.Repositories
         }
 
         /// <summary>
-        /// Metoda służąca do zmodyfikowania obiektu Car znalezionego w bazie danych za pomocą ID
+        /// Metoda służąca do zmodyfikowania obiektu Car znalezionego w bazie danych za pomocą ID. Metoda pozwala na modyfikacje wartości dla takich pól jak Marka, Model, Cost oraz RegistrationNumber oraz obiektu CarService
         /// </summary>
         /// <param name="Id">Integer użyty do wyszukania obiektu w bazie danych</param>
         /// <param name="car">Obiekt Car, którego zawartość zostanie przypisana do znalezionego obiektu w bazie danych</param>
