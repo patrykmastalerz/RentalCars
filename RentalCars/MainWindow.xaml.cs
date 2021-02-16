@@ -18,7 +18,10 @@ using System.Windows.Shapes;
 namespace RentalCars
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Głowny widok odpowiedzialny za wyświetlanie, usuwanie oraz modyfikowanie obiektów typu Car, Rental, Customer. 
+    /// Widok wyświetla 3 siatki z aktualnymi danymi z samochodami, klientami oraz wynajmami zawartych w bazie danych oraz 
+    /// przyciski akcji umożliwiające usuwanie lub modyfikacje wybranych elementów. Widok wyświetla osobne przyciski pod każdą z siatek
+    /// otwierające widoki odpowiedzialne za dodawanie nowych elementów do bazy.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -26,10 +29,25 @@ namespace RentalCars
         private readonly CustomerRepository customerRepository = null;
         private readonly RentalRepository rentalRepository = null;
 
+        /// <summary>
+        /// Zmienna typu DataGrid posiadająca informacje o siatce widoku Car
+        /// </summary>
         public static DataGrid carGridData;
+
+        /// <summary>
+        /// Zmienna typu DataGrid posiadająca informacje o siatce widoku Customer
+        /// </summary>
         public static DataGrid customerGridData;
+
+        /// <summary>
+        /// Zmienna typu DataGrid posiadająca informacje o siatce widoku Rental
+        /// </summary>
         public static DataGrid rentalGridData;
 
+        /// <summary>
+        /// Inicjalizuje widok oraz repozytoria CarRepository, CustomerRepository oraz RentalRepository użytych w klasie. 
+        /// Konstruktor również wypełnia danymi każdą z siatek, odpowiedzialnych za wyświetlanie danych o Car, Rental oraz Customer.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
