@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 namespace RentalCars
 {
     /// <summary>
-    /// Interaction logic for AddCarView.xaml
+    /// Widok odpowidzialny za dodawanie nowego obiektu typu Car do bazy danych z poziomu użytkownika. Widok również waliduje wpisane wartości w polach przez użytkownika oraz
+    /// resetuje je po pozytywnym dodaniu
     /// </summary>
     public partial class AddCarView : Window
     {
@@ -24,6 +25,9 @@ namespace RentalCars
         private DateTime textBoxData;
         private decimal cost;
 
+        /// <summary>
+        /// Inicjalizuje obiekt oraz inicjalizuje obiekt CarRepository użyty w klasie
+        /// </summary>
         public AddCarView()
         {
             InitializeComponent();
