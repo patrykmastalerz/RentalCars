@@ -15,7 +15,8 @@ using System.Windows.Shapes;
 namespace RentalCars
 {
     /// <summary>
-    /// Interaction logic for CarEditView.xaml
+    /// Widok odpowiedzialny za modyfikowanie wybranego obiektu Car. 
+    /// Widok wstępnie wpisuje obecne wartości obiektu Car, waliduje wpisane wartości przez użytkownika oraz resetuje je po pozytywnej modyfikacji. 
     /// </summary>
     public partial class CarEditView : Window
     {
@@ -25,6 +26,10 @@ namespace RentalCars
         private DateTime textBoxData;
         private decimal cost;
 
+        /// <summary>
+        /// Inicjalizuje obiekt CarEditView oraz inicjalizuje obiekt CarRepository użyty w klasie
+        /// </summary>
+        /// <param name="car"></param>
         public CarEditView(Car car)
         {
             InitializeComponent();

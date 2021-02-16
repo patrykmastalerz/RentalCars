@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RentalCars"
         mc:Ignorable="d"
-        Title="CarEditView" Height="450" Width="800">
+        Title="Edytuj samochod" Height="350" Width="450">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
