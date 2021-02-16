@@ -15,11 +15,16 @@ using System.Windows.Shapes;
 namespace RentalCars
 {
     /// <summary>
-    /// Interaction logic for AddCustomerView.xaml
+    /// Widok odpowiedzialny za dodawanie Customera do bazy danych przez użytkownika. 
+    /// Widok również waliduje wpisane przez użytkownika pola oraz je resetje po pozytywnym dodaniu
     /// </summary>
     public partial class AddCustomerView : Window
     {
         private readonly CustomerRepository repository = null;
+
+        /// <summary>
+        /// Inicjalizuje widok oraz inicjalizuje obiekt CustomerRepository, użyty w klasie
+        /// </summary>
         public AddCustomerView()
         {
             InitializeComponent();
