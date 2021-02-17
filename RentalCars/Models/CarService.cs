@@ -18,12 +18,12 @@ namespace RentalCars.Models
         public int CarServiceId { get; set; }
 
         /// <summary>
-        /// Pole From określa czas od którego ważny jest przegląd techniczny
+        /// Wlaściwość From określa czas od którego ważny jest przegląd techniczny
         /// </summary>
         public DateTime From { get; set; }
 
         /// <summary>
-        /// Pole To określa czas, do którego ważny przegląd techniczny
+        /// Wlaściwość To określa czas, do którego ważny przegląd techniczny
         /// </summary>
         public DateTime To { get; set; }
 

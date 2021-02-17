@@ -18,28 +18,28 @@ namespace RentalCars.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// Pole Marka, określa marke samochodu, pole jest wymagane i ograniczone do maksymalnie 20 znaków
+        /// Wlaściwość Marka, określa marke samochodu, pole jest wymagane i ograniczone do maksymalnie 20 znaków
         /// </summary>
         [Required]
         [MaxLength(20)]
         public string Marka { get; set; }
 
         /// <summary>
-        /// Pole Model, określa model samochodu, pole jest wymagane i ograniczone maksymalnie do 20 znaków
+        /// Wlaściwość Model, określa model samochodu, pole jest wymagane i ograniczone maksymalnie do 20 znaków
         /// </summary>
         [Required]
         [MaxLength(20)]
         public string Model { get; set; }
 
         /// <summary>
-        /// Pole RegistrationNumber, określa numer rejestracyjny każdego z samochodów, ograniczony jest do 8 znaków, pole jest wymagane
+        /// Wlaściwość RegistrationNumber, określa numer rejestracyjny każdego z samochodów, ograniczony jest do 8 znaków, pole jest wymagane
         /// </summary>
         [Required]
         [StringLength(8)]
         public string RegistrationNumber { get; set; }
 
         /// <summary>
-        /// Pole Cost, określa cene za godzine wynajmu samochodu, pole jest wymagane
+        /// Wlaściwość Cost, określa cene za godzine wynajmu samochodu, pole jest wymagane
         /// </summary>
         [Required]
         [Column(TypeName = "money")]

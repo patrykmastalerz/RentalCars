@@ -18,21 +18,21 @@ namespace RentalCars.Models
         public int Id { get; set; }
 
         /// <summary>
-        /// Pole FirstName opisuje imie klienta, pole wymagane ograniczone maksymalnie do 30 znaków
+        /// Wlaściwość FirstName opisuje imie klienta, pole wymagane ograniczone maksymalnie do 30 znaków
         /// </summary>
         [Required]
         [MaxLength(30)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Pole SecondName opisuje nazwisko klienta, pole wymagane ograniczone maksymalnie do 30 znaków
+        /// Wlaściwość SecondName opisuje nazwisko klienta, pole wymagane ograniczone maksymalnie do 30 znaków
         /// </summary>
         [Required]
         [MaxLength(30)]
         public string SecondName { get; set; }
 
         /// <summary>
-        /// Pole PhoneNumber opisuje numer telefonu klienta, pole ograniczone do 9 znaków
+        /// Wlaściwość PhoneNumber opisuje numer telefonu klienta, pole ograniczone do 9 znaków
         /// </summary>
         [Column(TypeName = "char")]
         [StringLength(9)]
