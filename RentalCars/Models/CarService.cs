@@ -7,7 +7,7 @@ using System.Text;
 namespace RentalCars.Models
 {
     /// <summary>
-    /// Model CarService opisuje przegląd techniczny samochodu
+    /// Model CarService opisuje przegląd techniczny samochodu w bazie danych
     /// </summary>
     public class CarService
     {
